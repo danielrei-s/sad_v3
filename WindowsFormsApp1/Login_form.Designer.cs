@@ -52,7 +52,6 @@ namespace WindowsFormsApp1
             this.button_login.TabIndex = 0;
             this.button_login.Text = "Login";
             this.button_login.UseVisualStyleBackColor = true;
-            this.button_login.Click += new System.EventHandler(this.button_login_Click);
             // 
             // button_clear
             // 
@@ -124,6 +123,7 @@ namespace WindowsFormsApp1
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(190, 20);
             this.txt_username.TabIndex = 8;
+            this.txt_username.TextChanged += new System.EventHandler(this.txt_username_TextChanged);
             // 
             // txt_userpw
             // 
@@ -150,6 +150,7 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(44)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(409, 346);
+            this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txt_userpw);
             this.Controls.Add(this.txt_username);
@@ -160,7 +161,9 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.button_exit);
             this.Controls.Add(this.button_clear);
             this.Controls.Add(this.button_login);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login_form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login_form";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

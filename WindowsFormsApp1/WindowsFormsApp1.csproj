@@ -117,6 +117,9 @@
     <EmbeddedResource Include="mapa_form_UC.resx">
       <DependentUpon>mapa_form_UC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menuregisto_form.resx">
+      <DependentUpon>Menuregisto_form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="nome_form.resx">
       <DependentUpon>nome_form.cs</DependentUpon>
     </EmbeddedResource>

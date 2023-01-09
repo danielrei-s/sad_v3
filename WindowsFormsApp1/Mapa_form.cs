@@ -80,5 +80,10 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
     }
 }
