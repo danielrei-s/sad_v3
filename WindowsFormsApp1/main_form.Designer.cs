@@ -37,11 +37,12 @@
             this.button_ODS = new System.Windows.Forms.Button();
             this.button_nome = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.mapa_form_UC1 = new WindowsFormsApp1.mapa_form_UC();
+            this.panel_main = new System.Windows.Forms.Panel();
+            this.exit_button = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.panel_main.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -111,6 +112,7 @@
             this.button_nuts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_nuts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_nuts.UseVisualStyleBackColor = false;
+            this.button_nuts.Click += new System.EventHandler(this.button_nuts_Click);
             // 
             // button_local
             // 
@@ -131,6 +133,7 @@
             this.button_local.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_local.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_local.UseVisualStyleBackColor = false;
+            this.button_local.Click += new System.EventHandler(this.button_local_Click);
             // 
             // button_ODS
             // 
@@ -151,6 +154,7 @@
             this.button_ODS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_ODS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_ODS.UseVisualStyleBackColor = false;
+            this.button_ODS.Click += new System.EventHandler(this.button_ODS_Click);
             // 
             // button_nome
             // 
@@ -170,6 +174,7 @@
             this.button_nome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_nome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_nome.UseVisualStyleBackColor = false;
+            this.button_nome.Click += new System.EventHandler(this.button_nome_Click);
             // 
             // pictureBox1
             // 
@@ -182,37 +187,57 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // panel2
+            // panel_main
             // 
-            this.panel2.BackColor = System.Drawing.Color.DarkGray;
-            this.panel2.Controls.Add(this.mapa_form_UC1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(185, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(615, 450);
-            this.panel2.TabIndex = 1;
+            this.panel_main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(60)))), ((int)(((byte)(100)))));
+            this.panel_main.Controls.Add(this.exit_button);
+            this.panel_main.Controls.Add(this.label2);
+            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_main.Location = new System.Drawing.Point(185, 0);
+            this.panel_main.Name = "panel_main";
+            this.panel_main.Size = new System.Drawing.Size(615, 450);
+            this.panel_main.TabIndex = 1;
+            this.panel_main.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_main_Paint);
             // 
-            // mapa_form_UC1
+            // exit_button
             // 
-            this.mapa_form_UC1.Location = new System.Drawing.Point(0, 0);
-            this.mapa_form_UC1.Name = "mapa_form_UC1";
-            this.mapa_form_UC1.Size = new System.Drawing.Size(615, 450);
-            this.mapa_form_UC1.TabIndex = 0;
+            this.exit_button.Location = new System.Drawing.Point(528, 415);
+            this.exit_button.Name = "exit_button";
+            this.exit_button.Size = new System.Drawing.Size(75, 23);
+            this.exit_button.TabIndex = 1;
+            this.exit_button.Text = "Exit";
+            this.exit_button.UseVisualStyleBackColor = true;
+            this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(130, 169);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(376, 86);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "WELCOME";
             // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel_main);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "main_form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
+            this.panel_main.ResumeLayout(false);
+            this.panel_main.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -227,8 +252,9 @@
         private System.Windows.Forms.Button button_local;
         private System.Windows.Forms.Button button_ODS;
         private System.Windows.Forms.Button button_nome;
-        private System.Windows.Forms.Panel panel2;
-        private mapa_form_UC mapa_form_UC1;
+        private System.Windows.Forms.Panel panel_main;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button exit_button;
     }
 }
 
