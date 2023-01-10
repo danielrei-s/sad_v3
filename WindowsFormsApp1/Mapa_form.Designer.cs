@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtboxid = new System.Windows.Forms.TextBox();
             this.search_button = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.googlemaps = new System.Windows.Forms.WebBrowser();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +47,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(615, 50);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+//            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -77,15 +77,15 @@
             this.search_button.UseVisualStyleBackColor = true;
             this.search_button.Click += new System.EventHandler(this.search_button_Click);
             // 
-            // webBrowser1
+            // googlemaps
             // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(615, 400);
-            this.webBrowser1.TabIndex = 1;
-            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
+            this.googlemaps.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.googlemaps.Location = new System.Drawing.Point(0, 0);
+            this.googlemaps.MinimumSize = new System.Drawing.Size(20, 20);
+            this.googlemaps.Name = "googlemaps";
+            this.googlemaps.Size = new System.Drawing.Size(615, 400);
+            this.googlemaps.TabIndex = 1;
+//            this.googlemaps.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // Mapa_form
             // 
@@ -94,7 +94,7 @@
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(615, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.googlemaps);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Mapa_form";
@@ -112,6 +112,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtboxid;
         private System.Windows.Forms.Button search_button;
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.WebBrowser googlemaps;
     }
 }

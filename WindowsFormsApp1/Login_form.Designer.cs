@@ -52,6 +52,7 @@ namespace WindowsFormsApp1
             this.button_login.TabIndex = 0;
             this.button_login.Text = "Login";
             this.button_login.UseVisualStyleBackColor = true;
+            this.button_login.Click += new System.EventHandler(this.button_login_Click_1);
             // 
             // button_clear
             // 
