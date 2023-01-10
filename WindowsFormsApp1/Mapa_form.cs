@@ -43,7 +43,7 @@ namespace WindowsFormsApp1
 
             StringBuilder strY = new StringBuilder(stringcoordy1);
             strY[2] = '.';
-
+            //
             queryadress.Append(strX + "," + strY);
 
             googlemaps.Navigate(queryadress.ToString());
