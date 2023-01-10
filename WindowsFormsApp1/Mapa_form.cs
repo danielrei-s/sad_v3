@@ -17,73 +17,49 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-L4ONO2J\\SQLEXPRESS;Initial Catalog=SAD_DB;Integrated Security=True");
+        
 
         private void search_button_Click(object sender, EventArgs e)
         {
-            String id = txtboxid.Text;
-            
             StringBuilder queryadress= new StringBuilder();
             queryadress.Append("http://google.com/maps?q=");
 
             SqlConnection conn = new SqlConnection("Data Source=DESKTOP-L4ONO2J\\SQLEXPRESS;Initial Catalog=SAD_DB;Integrated Security=True");
             
+            conn.Open();
+            SqlCommand qcoordx = new SqlCommand("SELECT coord_x FROM Data_ODS WHERE id = '" + txtboxid.Text + "'", conn);
+            float coordx1 = (float)((double)qcoordx.ExecuteScalar());
+            // buscar coordenada X
 
-            try
-            {
-                String coordx = "SELECT coord_x FROM Data.ODS WHERE id = '" + txtboxid.Text + "'" ;
-                String coordy = "SELECT coord_y FROM Data.ODS WHERE id = '" + txtboxid.Text + "'";
-                SqlDataAdapter sda = new SqlDataAdapter(coordx, conn);
-                DataTable dtable = new DataTable();
-                sda.Fill(dtable);
+            SqlCommand qcoordy = new SqlCommand("SELECT coord_y FROM Data_ODS WHERE id = '" + txtboxid.Text + "'", conn);
+            float coordy1 = (float)((double)qcoordy.ExecuteScalar());
+            // buscar coordenada Y
 
-                if (dtable.Rows.Count > 0)
-                {
+            string stringcoordx1 = coordx1.ToString();
+            string stringcoordy1 = coordy1.ToString();
 
-                    Console.WriteLine(dtable.Rows[0].ToString());
-                    //dtable.Rows.
-                    //user_name = txt_username.Text;
-                    //user_pw = txt_userpw.Text;
-                    //queryadress.Append()
-                    //main_form form1 = new main_form();
-                    //form1.Show();
-                    //this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Dados de Login incorrectos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtboxid.Clear();
+            StringBuilder strX = new StringBuilder(stringcoordx1);
+            strX[2] = '.';
 
-                    // focus user
-                    txtboxid.Focus();
+            StringBuilder strY = new StringBuilder(stringcoordy1);
+            strY[2] = '.';
 
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Erro Inesperado");
-            }
-            finally
-            {
-                conn.Close();
-            }
+            queryadress.Append(strX + "," + strY);
+
+            googlemaps.Navigate(queryadress.ToString());
+                
+           
+        }
+
+
+
+
+
+
 
 
         }
 
-        private void txtboxid_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-
-        }
-    }
+       
 }
+

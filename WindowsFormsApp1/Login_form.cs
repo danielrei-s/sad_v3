@@ -33,8 +33,30 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void button_login_Click(object sender, EventArgs e)
+        private void button_clear_Click(object sender, EventArgs e)
         {
+            txt_username.Clear();
+            txt_userpw.Clear();
+
+            txt_username.Focus();
+        }
+
+        private void registo_label_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Menuregisto_form menuregisto = new Menuregisto_form();
+            menuregisto.Show();
+            this.Hide();
+        }
+
+        private void txt_username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_login_Click_1(object sender, EventArgs e)
+        {
+
+
 
             SqlConnection conn = new SqlConnection("Data Source=DESKTOP-L4ONO2J\\SQLEXPRESS;Initial Catalog=SAD_DB;Integrated Security=True");
             String user_name, user_pw;
@@ -77,27 +99,7 @@ namespace WindowsFormsApp1
             {
                 conn.Close();
             }
+        
         }
-
-        private void button_clear_Click(object sender, EventArgs e)
-        {
-            txt_username.Clear();
-            txt_userpw.Clear();
-
-            txt_username.Focus();
-        }
-
-        private void registo_label_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Menuregisto_form menuregisto = new Menuregisto_form();
-            menuregisto.Show();
-            this.Hide();
-        }
-
-        private void txt_username_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
