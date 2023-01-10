@@ -43,9 +43,9 @@
             this.panel1.Controls.Add(this.txtboxid);
             this.panel1.Controls.Add(this.search_button);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 311);
+            this.panel1.Location = new System.Drawing.Point(0, 400);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(599, 100);
+            this.panel1.Size = new System.Drawing.Size(615, 50);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -54,7 +54,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(29, 37);
+            this.label1.Location = new System.Drawing.Point(29, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 26);
             this.label1.TabIndex = 2;
@@ -62,14 +62,14 @@
             // 
             // txtboxid
             // 
-            this.txtboxid.Location = new System.Drawing.Point(189, 43);
+            this.txtboxid.Location = new System.Drawing.Point(189, 17);
             this.txtboxid.Name = "txtboxid";
             this.txtboxid.Size = new System.Drawing.Size(224, 20);
             this.txtboxid.TabIndex = 1;
             // 
             // search_button
             // 
-            this.search_button.Location = new System.Drawing.Point(464, 43);
+            this.search_button.Location = new System.Drawing.Point(464, 17);
             this.search_button.Name = "search_button";
             this.search_button.Size = new System.Drawing.Size(75, 23);
             this.search_button.TabIndex = 0;
@@ -83,18 +83,22 @@
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(599, 311);
+            this.webBrowser1.Size = new System.Drawing.Size(615, 400);
             this.webBrowser1.TabIndex = 1;
+            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // Mapa_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(599, 411);
+            this.ClientSize = new System.Drawing.Size(615, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Mapa_form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mapa_form";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

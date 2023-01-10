@@ -35,6 +35,7 @@ namespace WindowsFormsApp1
 
         private void button_login_Click(object sender, EventArgs e)
         {
+
             SqlConnection conn = new SqlConnection("Data Source=DESKTOP-L4ONO2J\\SQLEXPRESS;Initial Catalog=SAD_DB;Integrated Security=True");
             String user_name, user_pw;
 
@@ -92,5 +93,11 @@ namespace WindowsFormsApp1
             menuregisto.Show();
             this.Hide();
         }
+
+        private void txt_username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
