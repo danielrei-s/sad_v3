@@ -8,14 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace WindowsFormsApp1
 {
     public partial class ODS_form : Form
     {
+        SqlConnection conn = new SqlConnection("Data Source=DESKTOP-L4ONO2J\\SQLEXPRESS;Initial Catalog=SAD_DB;Integrated Security=True");
+        List<string> odsSelection = new List<string>(); 
+        Dictionary<string, int> odsValues = new Dictionary<string, int>();
         public ODS_form()
         {
             InitializeComponent();
+            for (int i = 0; i < 17; i++)
+            {
+                odsSelection.Add("ods" + (i + 1));
+                //MessageBox.Show(odsSelection.ElementAt(i));
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -56,6 +65,36 @@ namespace WindowsFormsApp1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                odsSelection.Remove("ods1");
+            }
+            else
+            {
+                MessageBox.Show("disable");
+            }
+        }
+
+        private void seguinte_btn_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-L4ONO2J\\SQLEXPRESS;Initial Catalog=SAD_DB;Integrated Security=True");
+            conn.Open();
+
+            for (int i = 0; i < odsSelection.Count; i++)
+            {
+                //MessageBox.Show(odsSelection.ElementAt(i));
+                String query1 = "SELECT COUNT (" + odsSelection.ElementAt(i) + ") FROM Data_ODS WHERE" + odsSelection.ElementAt(i) + ">4";
+                //MessageBox.Show(query1);    
+                SqlCommand teste = new SqlCommand(query1, conn);
+                //int contagemOds = (int)teste.ExecuteScalar();  
+                odsValues.Add(odsSelection.ElementAt(i), (int)teste.ExecuteScalar());
+            }
+            //MessageBox.Show(odsValues.ToDictionary());
 
         }
     }
