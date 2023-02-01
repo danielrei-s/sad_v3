@@ -216,11 +216,12 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(130, 169);
+            this.label2.Location = new System.Drawing.Point(259, 226);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(376, 86);
             this.label2.TabIndex = 0;
             this.label2.Text = "WELCOME";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // main_form
             // 

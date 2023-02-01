@@ -84,18 +84,91 @@ namespace WindowsFormsApp1
         {
             SqlConnection conn = new SqlConnection("Data Source=DESKTOP-L4ONO2J\\SQLEXPRESS;Initial Catalog=SAD_DB;Integrated Security=True");
             conn.Open();
-
             for (int i = 0; i < odsSelection.Count; i++)
             {
-                //MessageBox.Show(odsSelection.ElementAt(i));
-                String query1 = "SELECT COUNT (" + odsSelection.ElementAt(i) + ") FROM Data_ODS WHERE" + odsSelection.ElementAt(i) + ">4";
-                //MessageBox.Show(query1);    
-                SqlCommand teste = new SqlCommand(query1, conn);
-                //int contagemOds = (int)teste.ExecuteScalar();  
-                odsValues.Add(odsSelection.ElementAt(i), (int)teste.ExecuteScalar());
-            }
-            //MessageBox.Show(odsValues.ToDictionary());
+                String query1 = "SELECT COUNT (" +
+                                odsSelection.ElementAt(i) +
+                                ") FROM Data_ODS WHERE " +
+                                odsSelection.ElementAt(i) + " >4";
 
+                //   String query1 = "SELECT COUNT (*) FROM Data_ODS WHERE " +
+                //                     odsSelection.ElementAt(i) + " >4";
+
+                SqlCommand teste = new SqlCommand(query1, conn);
+                int contagemOds = (int)teste.ExecuteScalar();
+
+                if (!odsValues.ContainsKey(odsSelection.ElementAt(i)))
+                {
+                    odsValues.Add(odsSelection.ElementAt(i), contagemOds);
+                }
+                else
+                {
+                    // Key already exists, do something else or update the value
+                    odsValues[odsSelection.ElementAt(i)] = contagemOds;
+                }
+            }
+
+            List<string> combinations = new List<string>();
+            foreach (var key1 in odsValues.Keys)
+            {
+                foreach (var key2 in odsValues.Keys)
+                {
+                    if (key1 != key2)
+                    {
+                        combinations.Add(key1 + " > 4 AND " + key2 + " > 4");
+                    }
+                }
+                //MessageBox.Show(combinations.ElementAt(1));
+            }
+
+            Dictionary<string, int> combinationCounts = new Dictionary<string, int>();
+
+            foreach (string combination in combinations)
+            {
+                String query = "SELECT COUNT(*) FROM Data_ODS WHERE " + combination;
+                SqlCommand cmd = new SqlCommand(query, conn);
+                int count = (int)cmd.ExecuteScalar();
+                combinationCounts.Add(combination, count);
+            }
+
+            bool keepIterating = true;
+            while (keepIterating)
+            {
+                var orderedCombinationCounts = combinationCounts.OrderBy(x => x.Value).ToList();
+                int numCombinationsToKeep = orderedCombinationCounts.Count / 2;
+
+                Dictionary<string, int> filteredCombinationCounts = new Dictionary<string, int>();
+                for (int i = 0; i < numCombinationsToKeep; i++)
+                {
+                    filteredCombinationCounts.Add(orderedCombinationCounts[i].Key, orderedCombinationCounts[i].Value);
+                }
+
+                combinationCounts = filteredCombinationCounts;
+
+                if (combinationCounts.Count == 1)
+                {
+                    keepIterating = false;
+                }
+            }
+            foreach (KeyValuePair<string, int> item in combinationCounts)
+            {
+                MessageBox.Show(item.Key + ": " + item.Value);
+            }
+            conn.Close();
+        }
+
+        private void ext_btn_Click(object sender, EventArgs e)
+        {
+            DialogResult res;
+            res = MessageBox.Show("Encerrar o programa?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                this.Show();
+            }
         }
     }
 }
