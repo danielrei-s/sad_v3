@@ -43,11 +43,10 @@
             this.panel1.Controls.Add(this.txtboxid);
             this.panel1.Controls.Add(this.search_button);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 400);
+            this.panel1.Location = new System.Drawing.Point(0, 526);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(615, 50);
+            this.panel1.Size = new System.Drawing.Size(839, 50);
             this.panel1.TabIndex = 0;
-//            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -83,16 +82,15 @@
             this.googlemaps.Location = new System.Drawing.Point(0, 0);
             this.googlemaps.MinimumSize = new System.Drawing.Size(20, 20);
             this.googlemaps.Name = "googlemaps";
-            this.googlemaps.Size = new System.Drawing.Size(615, 400);
+            this.googlemaps.Size = new System.Drawing.Size(839, 526);
             this.googlemaps.TabIndex = 1;
-//            this.googlemaps.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // Mapa_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(615, 450);
+            this.ClientSize = new System.Drawing.Size(839, 576);
             this.ControlBox = false;
             this.Controls.Add(this.googlemaps);
             this.Controls.Add(this.panel1);
