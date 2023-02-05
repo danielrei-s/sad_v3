@@ -66,11 +66,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(4, 100);
+            this.label1.Location = new System.Drawing.Point(45, 103);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(182, 21);
+            this.label1.Size = new System.Drawing.Size(88, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Procurar projecto por: ";
+            this.label1.Text = "Search by:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button_mapa
             // 
