@@ -170,7 +170,7 @@
             this.button_nome.Name = "button_nome";
             this.button_nome.Size = new System.Drawing.Size(185, 63);
             this.button_nome.TabIndex = 3;
-            this.button_nome.Text = "Nome";
+            this.button_nome.Text = "List Projects";
             this.button_nome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_nome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button_nome.UseVisualStyleBackColor = false;

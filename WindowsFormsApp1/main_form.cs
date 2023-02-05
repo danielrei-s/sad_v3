@@ -25,11 +25,11 @@ namespace WindowsFormsApp1
         private void button_mapa_Click(object sender, EventArgs e)
         {
             panel_main.Controls.Clear();
-            Mapa_form mapa = new Mapa_form();
-            mapa.TopLevel = false;
-            panel_main.Controls.Add(mapa);
-            mapa.BringToFront();
-            mapa.Show();
+            //Mapa_form mapa = new Mapa_form();
+            //mapa.TopLevel = false;
+            //panel_main.Controls.Add(mapa);
+            //mapa.BringToFront();
+            //mapa.Show();
         }
 
         private void mapa_form_UC1_Load(object sender, EventArgs e)
