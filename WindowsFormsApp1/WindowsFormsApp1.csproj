@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="All, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cotur.DataMining.1.2.0\lib\netstandard2.0\All.dll</HintPath>
+    </Reference>
+    <Reference Include="Association, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cotur.DataMining.Association.1.2.0\lib\netstandard2.0\Association.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -101,6 +107,7 @@
       <DependentUpon>ODS_form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Projeto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="main_form.resx">
       <DependentUpon>main_form.cs</DependentUpon>
@@ -137,7 +144,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Cotur.DataMining.Association.CNode.datasource" />
+    <None Include="Properties\DataSources\ODS_form.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -150,6 +161,78 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sdg-pt-17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Norte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Algarve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Centro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lisboa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alentejo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Acores_madeira.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Portugal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

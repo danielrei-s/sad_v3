@@ -13,52 +13,76 @@ namespace WindowsFormsApp1
 {
     public partial class Mapa_form : Form
     {
-        public Mapa_form()
+       string idProjeto;
+        public Mapa_form(string id)
         {
+            
             InitializeComponent();
+            this.idProjeto = id;
+            search_button.PerformClick();
+            
         }
         
 
         private void search_button_Click(object sender, EventArgs e)
         {
+           
             StringBuilder queryadress= new StringBuilder();
             queryadress.Append("http://google.com/maps?q=");
+           
+            SqlDataReader reader2;
 
-            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-L4ONO2J\\SQLEXPRESS;Initial Catalog=SAD_DB;Integrated Security=True");
+            SqlConnection conn1 = new SqlConnection("Data Source=LENOVO-CARBON\\SQLEXPRESS;Initial Catalog=SAD;Integrated Security=True");
             
-            conn.Open();
-            SqlCommand qcoordx = new SqlCommand("SELECT coord_x FROM Data_ODS WHERE id = '" + txtboxid.Text + "'", conn);
-            float coordx1 = (float)((double)qcoordx.ExecuteScalar());
-            // buscar coordenada X
+            conn1.Open();
+            String qr = "SELECT coord_x, coord_y, projeto FROM projetos WHERE id = '" + idProjeto + "'";
+            
+            SqlCommand coords = new SqlCommand(qr, conn1);
+            string stringcoordx1=""; 
+            string stringcoordy1="";
 
-            SqlCommand qcoordy = new SqlCommand("SELECT coord_y FROM Data_ODS WHERE id = '" + txtboxid.Text + "'", conn);
-            float coordy1 = (float)((double)qcoordy.ExecuteScalar());
-            // buscar coordenada Y
 
-            string stringcoordx1 = coordx1.ToString();
-            string stringcoordy1 = coordy1.ToString();
 
-            StringBuilder strX = new StringBuilder(stringcoordx1);
-            strX[2] = '.';
+            try
+            {
+                reader2 = coords.ExecuteReader();
+                
+                while (reader2.Read())
+                {
+                    //MessageBox.Show(reader2.GetFieldType(0).ToString() );
+                    stringcoordx1 = reader2.GetString(0);
+                    stringcoordy1 = reader2.GetString(1);
+                }
 
-            StringBuilder strY = new StringBuilder(stringcoordy1);
-            strY[2] = '.';
-            //
-            queryadress.Append(strX + "," + strY);
+                
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+            
+            queryadress.Append(stringcoordx1 + "," + stringcoordy1);
+            
 
             googlemaps.Navigate(queryadress.ToString());
-                
+               
            
         }
 
-
-
-
-
-
-
+        private void googlemaps_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
 
         }
+
+        private void txtboxid_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 
        
 }
