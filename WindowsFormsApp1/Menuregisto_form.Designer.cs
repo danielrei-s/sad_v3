@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menuregisto_form));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox_name = new System.Windows.Forms.TextBox();
+            this.textBox_email = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox_repassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox_password = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_register = new System.Windows.Forms.Button();
+            this.btn_clear = new System.Windows.Forms.Button();
             this.ext_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -56,19 +56,19 @@
             this.label1.Text = "Name / Login";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // textBox_name
             // 
-            this.textBox1.Location = new System.Drawing.Point(335, 290);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox_name.Location = new System.Drawing.Point(335, 290);
+            this.textBox_name.Name = "textBox_name";
+            this.textBox_name.Size = new System.Drawing.Size(182, 20);
+            this.textBox_name.TabIndex = 1;
             // 
-            // textBox5
+            // textBox_email
             // 
-            this.textBox5.Location = new System.Drawing.Point(335, 316);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(182, 20);
-            this.textBox5.TabIndex = 9;
+            this.textBox_email.Location = new System.Drawing.Point(335, 316);
+            this.textBox_email.Name = "textBox_email";
+            this.textBox_email.Size = new System.Drawing.Size(182, 20);
+            this.textBox_email.TabIndex = 9;
             // 
             // label5
             // 
@@ -81,12 +81,12 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "E-mail";
             // 
-            // textBox2
+            // textBox_repassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(335, 368);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(182, 20);
-            this.textBox2.TabIndex = 13;
+            this.textBox_repassword.Location = new System.Drawing.Point(335, 368);
+            this.textBox_repassword.Name = "textBox_repassword";
+            this.textBox_repassword.Size = new System.Drawing.Size(182, 20);
+            this.textBox_repassword.TabIndex = 13;
             // 
             // label2
             // 
@@ -100,12 +100,12 @@
             this.label2.Text = "Re-enter Password";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox3
+            // textBox_password
             // 
-            this.textBox3.Location = new System.Drawing.Point(335, 342);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(182, 20);
-            this.textBox3.TabIndex = 11;
+            this.textBox_password.Location = new System.Drawing.Point(335, 342);
+            this.textBox_password.Name = "textBox_password";
+            this.textBox_password.Size = new System.Drawing.Size(182, 20);
+            this.textBox_password.TabIndex = 11;
             // 
             // label3
             // 
@@ -129,23 +129,24 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btn_register
             // 
-            this.button1.Location = new System.Drawing.Point(442, 417);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 25);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Register";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_register.Location = new System.Drawing.Point(442, 417);
+            this.btn_register.Name = "btn_register";
+            this.btn_register.Size = new System.Drawing.Size(75, 25);
+            this.btn_register.TabIndex = 15;
+            this.btn_register.Text = "Register";
+            this.btn_register.UseVisualStyleBackColor = true;
+            this.btn_register.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btn_clear
             // 
-            this.button2.Location = new System.Drawing.Point(335, 417);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 25);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_clear.Location = new System.Drawing.Point(335, 417);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(75, 25);
+            this.btn_clear.TabIndex = 16;
+            this.btn_clear.Text = "Clear";
+            this.btn_clear.UseVisualStyleBackColor = true;
             // 
             // ext_btn
             // 
@@ -165,16 +166,16 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(44)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(839, 576);
             this.Controls.Add(this.ext_btn);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_clear);
+            this.Controls.Add(this.btn_register);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox_repassword);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox_password);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox_email);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_name);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Menuregisto_form";
@@ -189,16 +190,16 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox_name;
+        private System.Windows.Forms.TextBox textBox_email;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox_repassword;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox_password;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_register;
+        private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Button ext_btn;
     }
 }

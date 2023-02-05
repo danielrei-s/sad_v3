@@ -55,27 +55,22 @@ namespace WindowsFormsApp1
 
         private void button_login_Click_1(object sender, EventArgs e)
         {
-
-
-
             SqlConnection conn = new SqlConnection("Data Source=DESKTOP-L4ONO2J\\SQLEXPRESS;Initial Catalog=SAD_DB;Integrated Security=True");
-            String user_name, user_pw;
-
-            user_name = txt_username.Text;
-            user_pw = txt_userpw.Text;
-
             try
             {
-                String query = "SELECT * FROM Utilizadores WHERE user_login = '" + txt_username.Text + "' AND user_pw = '" + txt_userpw.Text + "'";
-                SqlDataAdapter sda = new SqlDataAdapter(query, conn);
+                conn.Open();
+
+                String query = "SELECT * FROM Utilizadores WHERE user_login = @username AND user_pw = @password";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@username", txt_username.Text);
+                cmd.Parameters.AddWithValue("@password", txt_userpw.Text);
+
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dtable = new DataTable();
                 sda.Fill(dtable);
 
                 if (dtable.Rows.Count > 0)
                 {
-                    user_name = txt_username.Text;
-                    user_pw = txt_userpw.Text;
-
                     main_form form1 = new main_form();
                     form1.Show();
                     this.Hide();
@@ -88,7 +83,6 @@ namespace WindowsFormsApp1
 
                     // focus user
                     txt_username.Focus();
-
                 }
             }
             catch
@@ -99,7 +93,11 @@ namespace WindowsFormsApp1
             {
                 conn.Close();
             }
-        
+        }
+
+        private void Login_form_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
